@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini project of Malika Agzamova</title>
+
+</head>
+<body>
+    <h1>Timetable for level {{ level }}</h1>
+
+    {% if data %}
+    <div class="table-wrapper">
+        <table class="fl-table">
+            <thead>
+                <tr>
+                    <th>Course ID</th>
+                    <th>Course Name</th>
+                    <th>Day</th>
+                    <th>Time</th>
+                    <th>Room</th>
+                    <th>Level</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                <tr>
+                    <td>{{ row[0] }}</td>
+                    <td>{{ row[1] }}</td>
+                    <td>{{ row[2] }}</td>
+                    <td>{{ row[3] }}</td>
+                    <td>{{ row[4] }}</td>
+                    <td>{{ row[5] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% else %}
+    <p>{{ message }}</p>
+    {% endif %}
+
+    <a href="/" class="back-button">Go Back</a>
+</body>
+</html>
+
+<style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f8ff;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #4caf50;
+            margin: 20px 0;
+            font-size: 24px;
+        }
+
+        .table-wrapper {
+            margin: 20px auto;
+            max-width: 90%;
+            overflow-x: auto;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .fl-table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .fl-table th, .fl-table td {
+            text-align: center;
+            padding: 12px 16px;
+        }
+
+        .fl-table th {
+            background: #324960;
+            color: white;
+            font-size: 14px;
+        }
+
+        .fl-table th:nth-child(odd) {
+            background: #4FC3A1;
+        }
+
+        .fl-table td {
+            font-size: 13px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .fl-table tr:nth-child(even) {
+            background: #f8f8f8;
+        }
+
+        .back-button {
+            display: block;
+            width: 150px;
+            margin: 30px auto;
+            padding: 12px 24px;
+            font-size: 16px;
+            color: white;
+            background-color: #04AA6D;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #036d49;
+            transform: scale(1.05);
+        }
+
+        .back-button:active {
+            background-color: #025b3c;
+            transform: scale(1);
+        }
+
+    </style>
